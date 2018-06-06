@@ -1,8 +1,17 @@
-package com.followupme.users.dto;
+package com.followupme.users.utility;
 
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Created on June 05, 2018
+ * Created by: Badawy Abouads
+ *
+ * All Search Users Options
+ * Ex: Search by email
+ *  or Search by username
+ * Any new option can be added easily here
+ */
 public enum SearchOptions {
 
     EMAIL("email"),USERNAME("username");

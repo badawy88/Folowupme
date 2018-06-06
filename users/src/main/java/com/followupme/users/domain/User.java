@@ -1,11 +1,14 @@
 package com.followupme.users.domain;
 
-import lombok.AllArgsConstructor;
+import com.followupme.users.domain.embedded.Contacts;
+import com.followupme.users.domain.embedded.LoginInfo;
+import com.followupme.users.domain.embedded.Name;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * Created on June 05, 2018
@@ -24,11 +27,15 @@ public class User {
     @Embedded
     private Name name;
     @NotNull
-    private String dataOfBirth;
+    @Temporal(TemporalType.DATE)
+    private Date dataOfBirth;
     @Embedded
     private Contacts contactInfo;
     @Embedded
     private LoginInfo loginInfo;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date createdDate = new Date();
 
     /**
      *
@@ -37,7 +44,7 @@ public class User {
      * @param contactInfo contact info
      * @param loginInfo username, password
      */
-    public User(Name name, String dataOfBirth, Contacts contactInfo, LoginInfo loginInfo) {
+    public User(Name name, Date dataOfBirth, Contacts contactInfo, LoginInfo loginInfo) {
         this.name = name;
         this.dataOfBirth = dataOfBirth;
         this.contactInfo = contactInfo;

@@ -1,17 +1,15 @@
 package com.followupme.users.service;
 
-import com.followupme.users.domain.Contacts;
-import com.followupme.users.domain.LoginInfo;
-import com.followupme.users.domain.Name;
+import com.followupme.users.domain.embedded.Contacts;
+import com.followupme.users.domain.embedded.LoginInfo;
+import com.followupme.users.domain.embedded.Name;
 import com.followupme.users.domain.User;
-import com.followupme.users.dto.SearchOptions;
-import com.followupme.users.dto.SearchUserOtionDto;
+import com.followupme.users.utility.SearchOptions;
+import com.followupme.users.utility.SearchUserOptionUtility;
 import com.followupme.users.dto.UserDto;
 import com.followupme.users.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -37,26 +35,30 @@ public class UserService {
 
     /**
      *
-     * @param searchUserOtionDto search dto template
+     * @param searchUserOption search dto template
      * @return Query User by username or Password, return null if there is no option selected
      */
-    public User getUser(SearchUserOtionDto searchUserOtionDto) {
+    public User getUser(SearchUserOptionUtility searchUserOption) {
         User user = null;
-        if(searchUserOtionDto != null) {
-            if (searchUserOtionDto.getSearchOptions().equals(SearchOptions.EMAIL)) {
-                user = userRepository.getUserByContactInfoEmailAddress(searchUserOtionDto.getValue());
-            } else if (searchUserOtionDto.getSearchOptions().equals(SearchOptions.USERNAME)) {
-                user = userRepository.getUserByLoginInfoUsername(searchUserOtionDto.getValue());
+        if(searchUserOption != null) {
+            if (searchUserOption.getSearchOptions().equals(SearchOptions.EMAIL)) {
+                user = userRepository.getUserByContactInfoEmailAddress(searchUserOption.getValue());
+            } else if (searchUserOption.getSearchOptions().equals(SearchOptions.USERNAME)) {
+                user = userRepository.getUserByLoginInfoUsername(searchUserOption.getValue());
             }
         }
 
         return user;
     }
 
-    public void createUser(UserDto userDto) {
-        userRepository.save(new User(new Name(userDto.getFirstname(), userDto.getMiddleName(),userDto.getLastName()) ,
-                userDto.getDataOfBirth() ,
-                new Contacts(userDto.getEmailAddress() , userDto.getMobileNumber() , userDto.getLandLine()) ,
-                new LoginInfo(userDto.getUsername() , userDto.getPassword())));
+    /**
+     *
+     * @param user input user dto data
+     */
+    public void createUser(UserDto user) {
+        userRepository.save(new User(new Name(user.getFirstname(), user.getMiddleName(),user.getLastName()) ,
+                user.getDataOfBirth() ,
+                new Contacts(user.getEmailAddress() , user.getMobileNumber() , user.getLandLine()) ,
+                new LoginInfo(user.getUsername() , user.getPassword())));
     }
 }

@@ -1,16 +1,17 @@
 package com.followupme.users.controller;
 
-import com.followupme.users.common.ResourcesNotFoundException;
 import com.followupme.users.domain.User;
-import com.followupme.users.dto.SearchOptions;
-import com.followupme.users.dto.SearchUserOtionDto;
+import com.followupme.users.utility.SearchOptions;
+import com.followupme.users.utility.SearchUserOptionUtility;
 import com.followupme.users.dto.UserDto;
 import com.followupme.users.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import me.followup.exceptions.ResourcesNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -59,7 +60,7 @@ public class UserController {
             throw new IllegalArgumentException("Invalid Search Option");
         }
 
-        User user = userService.getUser(new SearchUserOtionDto(inputSearchOption, value));
+        User user = userService.getUser(new SearchUserOptionUtility(inputSearchOption, value));
         if (user == null) {
             throw new ResourcesNotFoundException("No result found for your criteria");
         }
@@ -67,7 +68,7 @@ public class UserController {
     }
     @ApiOperation(value = "Create New User", notes = "Email address should be unique email", nickname = "CreateUser")
     @RequestMapping(method = RequestMethod.POST)
-    public void createUser(@RequestBody @ApiParam(value = "New User Detail info") UserDto userDto) {
+    public void createUser(@RequestBody @ApiParam(value = "New User Detail info") @Validated UserDto userDto) {
         userService.createUser(userDto);
     }
 

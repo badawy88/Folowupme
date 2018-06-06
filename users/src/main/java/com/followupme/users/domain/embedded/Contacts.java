@@ -1,4 +1,4 @@
-package com.followupme.users.domain;
+package com.followupme.users.domain.embedded;
 
 
 import lombok.AllArgsConstructor;

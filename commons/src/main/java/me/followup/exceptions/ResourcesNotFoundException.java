@@ -1,10 +1,14 @@
-package com.followupme.users.common;
+package me.followup.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.util.NoSuchElementException;
-
+/**
+ * Created on June 06, 2018
+ * Created by: Badawy Abouads
+ *
+ * Exception for handling the resources which is not found / 404
+ */
 @ResponseStatus(value = HttpStatus.NOT_FOUND)
 public class ResourcesNotFoundException extends RuntimeException {
     public ResourcesNotFoundException() {
@@ -23,3 +27,4 @@ public class ResourcesNotFoundException extends RuntimeException {
         super(cause);
     }
 }
+
