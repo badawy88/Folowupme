@@ -4,13 +4,17 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created on June 05, 2018
- * Created by: Badawy Abouads
+ * <h1>SearchOptions class</h1>
+ * <p>
+ *     All Search Users Options <br>
+ *         Ex: Search by email or Search by username <br>
+ *             Any new option can be added easily here
  *
- * All Search Users Options
- * Ex: Search by email
- *  or Search by username
- * Any new option can be added easily here
+ *
+ *
+ * @author Badawy Abouads
+ * @version 1.0
+ * @since   2018-06-05
  */
 public enum SearchOptions {
 

@@ -1,29 +1,40 @@
 package com.followupme.users.dto;
 
+import com.followupme.users.commons.annotation.Phone;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import me.followup.annotation.Phone;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.validation.annotation.Validated;
 
 import javax.validation.constraints.*;
 import java.util.Date;
 
 /**
- * Created on June 05, 2018
- * Created by: Badawy Abouads
+ * <h1>UserDto class</h1>
+ * <p>
+ *     User Dto to use in creating new Users
  *
- * User Dto to use in creating new Users
+ *
+ *
+ * @author Badawy Abouads
+ * @version 1.0
+ * @since   2018-06-05
  */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Validated
 public class UserDto {
     @NotNull
-    @Min(3) @Max(15)
+    @Size(min = 5 , max = 15)
     private String firstname;
 
-    @Max(15)
+    @Size(min = 0 , max = 15)
     private String middleName;
 
     @NotNull
-    @Min(3) @Max(15)
+    @Size(min = 3 , max = 15)
     private String lastName;
 
     @NotNull
@@ -32,7 +43,7 @@ public class UserDto {
     private Date dataOfBirth;
 
     @NotNull
-    @Email @Max(50)
+    @Email @Size(min = 5 , max = 50)
     private String emailAddress;
 
     @NotNull
@@ -43,10 +54,10 @@ public class UserDto {
     private String landLine;
 
     @NotNull
-    @Min(5) @Max(15)
+    @Size(min = 5 , max = 15)
     private String username;
 
     @NotNull
-    @Min(5) @Max(15)
+    @Size(min = 5 , max = 15)
     private String password;
 }

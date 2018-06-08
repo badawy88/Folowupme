@@ -11,10 +11,15 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
- * Created on June 05, 2018
- * Created by: Abouads, Badawy
+ * <h1>User class</h1>
+ * <p>
+ *     User Object which represents USER_ table in database
  *
- * User table in database
+ *
+ *
+ * @author Badawy Abouads
+ * @version 1.0
+ * @since   2018-06-05
  */
 @Data
 @NoArgsConstructor

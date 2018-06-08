@@ -9,11 +9,17 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.validation.constraints.NotNull;
 
+
 /**
- * Created on June 05, 2018
- * Created by: Abouads, Badawy
+ * <h1>Contacts class</h1>
+ * <p>
+ *     User Contacts Info columns in user table in database
  *
- * Contacts column in user table in database
+ *
+ *
+ * @author Badawy Abouads
+ * @version 1.0
+ * @since   2018-06-05
  */
 @Data
 @NoArgsConstructor @AllArgsConstructor

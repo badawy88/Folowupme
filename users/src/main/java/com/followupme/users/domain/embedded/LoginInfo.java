@@ -9,12 +9,18 @@ import javax.persistence.Embeddable;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
- * Created on June 05, 2018
- * Created by: Abouads, Badawy
+ * <h1>LoginInfo class</h1>
+ * <p>
+ *     User Login Info columns in user table in database
  *
- * Login Info columns in user table in database
+ *
+ *
+ * @author Badawy Abouads
+ * @version 1.0
+ * @since   2018-06-05
  */
 @Data
 @NoArgsConstructor @AllArgsConstructor
@@ -22,14 +28,12 @@ import javax.validation.constraints.NotNull;
 public class LoginInfo {
 
     @NotNull
-    @Min(8)
-    @Max(15)
+    @Size(min = 8 , max = 15)
     @Column(name = "username")
     private String username;
 
     @NotNull
-    @Min(8)
-    @Max(15)
+    @Size(min = 5 , max = 15)
     @Column(name = "password")
     private String password;
 
