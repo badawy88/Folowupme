@@ -17,21 +17,19 @@ import java.util.Collections;
 /**
  * <h1>UsersApplication class</h1>
  * <p>
- *     Start Point for starting this API and run this microservice
- *
- *
- *
+ * Start Point for starting this API and run this microservice
  *
  * @author Badawy Abouads
  * @version 1.0
- * @since   2018-06-05
+ * @since 2018-06-05
  */
 @SpringBootApplication
 public class UsersApplication {
     /**
      * <p>
-     *     Main Method
+     * Main Method
      * </p>
+     *
      * @param args startup arguments
      */
     public static void main(String[] args) {

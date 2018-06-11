@@ -22,22 +22,18 @@ import java.util.List;
  * <p>
  * <h2>List of operations</h2>
  * <ul>
- *  <li>listAll : operation which retrieve all users from database, test methods for this operation:</li>
- *  <li>
- *      getUser : Search for a user in database.
- *  </li>
- *  <li>
- *      createUser : Create a new user in database
- *  </li>
+ * <li>listAll : operation which retrieve all users from database, test methods for this operation:</li>
+ * <li>
+ * getUser : Search for a user in database.
+ * </li>
+ * <li>
+ * createUser : Create a new user in database
+ * </li>
  * </ul>
- *
- *
- *
- *
  *
  * @author Badawy Abouads
  * @version 1.0
- * @since   2018-06-05
+ * @since 2018-06-05
  */
 
 @RestController
@@ -63,15 +59,16 @@ public class UserController {
 
     /**
      * <p>
-     *     Search for user in user table and retreive the result<br>
-     *     Search Criteria are :
-     *     <ul>
-     *         <li>username</li>
-     *         <li>email</li>
-     *     </ul>
+     * Search for user in user table and retreive the result<br>
+     * Search Criteria are :
+     * <ul>
+     * <li>username</li>
+     * <li>email</li>
+     * </ul>
      * </p>
+     *
      * @param searchOption input search option, Ex: by email or by username
-     * @param value the input value required for search
+     * @param value        the input value required for search
      * @return user based on options
      */
     @ApiOperation(value = "Search for User", notes = "Get User by some options like email or username", nickname = "getUser")
@@ -93,9 +90,10 @@ public class UserController {
 
     /**
      * <p>
-     *     Create a new User<br>
-     *         username, email adress, and mobile number should be unique in the system
+     * Create a new User<br>
+     * username, email adress, and mobile number should be unique in the system
      * </p>
+     *
      * @param user data transfer object for simplify User class to the end user
      */
     @ApiOperation(value = "Create New User", notes = "Email address should be unique email", nickname = "CreateUser")

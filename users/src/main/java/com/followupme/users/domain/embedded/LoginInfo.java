@@ -14,26 +14,25 @@ import javax.validation.constraints.Size;
 /**
  * <h1>LoginInfo class</h1>
  * <p>
- *     User Login Info columns in user table in database
- *
- *
+ * User Login Info columns in user table in database
  *
  * @author Badawy Abouads
  * @version 1.0
- * @since   2018-06-05
+ * @since 2018-06-05
  */
 @Data
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Embeddable
 public class LoginInfo {
 
     @NotNull
-    @Size(min = 8 , max = 15)
+    @Size(min = 8, max = 15)
     @Column(name = "username")
     private String username;
 
     @NotNull
-    @Size(min = 5 , max = 15)
+    @Size(min = 5, max = 15)
     @Column(name = "password")
     private String password;
 

@@ -12,31 +12,31 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 import java.util.Collections;
+
 /**
  * <h1>Swagger Configuration class</h1>
  * SwaggerConfig class contains swagger configuration for the application
  * <p>
  * <h2>List of operations</h2>
  * <ul>
- *  <li>
- *      api : return a bean which will scan packages for swagger documentation anotations<br/>
- *  </li>
- *  <li>
- *      apiInfo : returns api information to be configured in swagger
- *  </li>
+ * <li>
+ * api : return a bean which will scan packages for swagger documentation anotations<br/>
+ * </li>
+ * <li>
+ * apiInfo : returns api information to be configured in swagger
+ * </li>
  * </ul>
  * -- add profile to seprate it from testing classes
  *
  * @author Badawy Abouads
  * @version 1.0
- * @since   2018-06-06
+ * @since 2018-06-06
  */
 @Configuration
 @EnableSwagger2
 @Profile("dev")
 public class SwaggerConfig {
     /**
-     *
      * @return Docket
      */
     @Bean
@@ -50,7 +50,6 @@ public class SwaggerConfig {
     }
 
     /**
-     *
      * @return ApiInfo for Swagger 2
      */
     private ApiInfo apiInfo() {

@@ -18,13 +18,11 @@ import java.util.List;
 /**
  * <h1>UserService class</h1>
  * <p>
- *     User Service, The layer between the controller and repository
- *
- *
+ * User Service, The layer between the controller and repository
  *
  * @author Badawy Abouads
  * @version 1.0
- * @since   2018-06-05
+ * @since 2018-06-05
  */
 @Service
 public class UserService {
@@ -38,8 +36,9 @@ public class UserService {
 
     /**
      * <p>
-     *     list all user in database
+     * list all user in database
      * </p>
+     *
      * @return List of users
      */
     public List<User> listAll() {
@@ -47,13 +46,12 @@ public class UserService {
     }
 
     /**
-     *
      * @param searchUserOption search dto template
      * @return Query User by username or Password, return null if there is no option selected
      */
     public User getUser(SearchUserOptionUtility searchUserOption) {
         User user = null;
-        if(searchUserOption != null) {
+        if (searchUserOption != null) {
             if (searchUserOption.getSearchOptions().equals(SearchOptions.EMAIL)) {
                 user = userRepository.getUserByContactInfoEmailAddress(searchUserOption.getValue());
             } else if (searchUserOption.getSearchOptions().equals(SearchOptions.USERNAME)) {
@@ -65,21 +63,20 @@ public class UserService {
     }
 
     /**
-     *
      * @param userDto input user dto data
      */
     public User createUser(@Validated @Valid UserDto userDto) {
-        User searchForUser = userRepository.getUserByLoginInfoUsernameOrContactInfoEmailAddress(userDto.getUsername() , userDto.getEmailAddress());
-        if(searchForUser != null) {
-            if(searchForUser.getContactInfo().getEmailAddress().equals(userDto.getEmailAddress())){
+        User searchForUser = userRepository.getUserByLoginInfoUsernameOrContactInfoEmailAddress(userDto.getUsername(), userDto.getEmailAddress());
+        if (searchForUser != null) {
+            if (searchForUser.getContactInfo().getEmailAddress().equals(userDto.getEmailAddress())) {
                 throw new RuntimeException("Email address is already used");
-            } else if(searchForUser.getLoginInfo().getUsername().equals(userDto.getUsername())) {
+            } else if (searchForUser.getLoginInfo().getUsername().equals(userDto.getUsername())) {
                 throw new RuntimeException("Username is already used");
             }
         }
-        return userRepository.save(new User(new Name(userDto.getFirstname(), userDto.getMiddleName(),userDto.getLastName()) ,
-                userDto.getDataOfBirth() ,
-                new Contacts(userDto.getEmailAddress().toLowerCase() , userDto.getMobileNumber() , userDto.getLandLine()) ,
-                new LoginInfo(userDto.getUsername().toLowerCase() , userDto.getPassword())));
+        return userRepository.save(new User(new Name(userDto.getFirstname(), userDto.getMiddleName(), userDto.getLastName()),
+                userDto.getDataOfBirth(),
+                new Contacts(userDto.getEmailAddress().toLowerCase(), userDto.getMobileNumber(), userDto.getLandLine()),
+                new LoginInfo(userDto.getUsername().toLowerCase(), userDto.getPassword())));
     }
 }

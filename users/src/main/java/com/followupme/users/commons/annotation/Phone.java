@@ -10,13 +10,13 @@ import java.lang.annotation.*;
 /**
  * Created on June 06, 2018
  * Created by: Badawy Abouads
- *
+ * <p>
  * Mobile/Phone validation anotation
- *  Used Validator class PhoneValidator
+ * Used Validator class PhoneValidator
  */
 @Documented
 @Constraint(validatedBy = PhoneValidator.class)
-@Target({ ElementType.METHOD, ElementType.FIELD })
+@Target({ElementType.METHOD, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Phone {
     String message() default "Invalid Mobile/Phone Number";

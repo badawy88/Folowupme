@@ -30,8 +30,9 @@ import static org.hamcrest.CoreMatchers.*;
 
 /**
  * Created on June 05, 2018
+ *
  * @Author Badawy Abouads
- *(webEnvironment = SpringBootTest.WebEnvironment.NONE)
+ * (webEnvironment = SpringBootTest.WebEnvironment.NONE)
  * User Service unit test
  */
 @ActiveProfiles(profiles = "test")
@@ -51,12 +52,13 @@ public class UserServiceTest {
         validatorFactory = Validation.buildDefaultValidatorFactory();
         validator = validatorFactory.getValidator();
     }
+
     @Test
     public void testCreateUserHappyPath() {
         assertTrue(userService.listAll().isEmpty());
-        UserDto user = new UserDto("Badawy" , "Mahmoud" , "Abouads" , new Date() ,
-                                "bawymahmod@gmail.com" , "0595477055" , ""
-                                , "badawymahmod" , "123456");
+        UserDto user = new UserDto("Badawy", "Mahmoud", "Abouads", new Date(),
+                "bawymahmod@gmail.com", "0595477055", ""
+                , "badawymahmod", "123456");
         userService.createUser(user);
         assertFalse(userService.listAll().isEmpty());
 
@@ -65,9 +67,9 @@ public class UserServiceTest {
     @Test(expected = RuntimeException.class)
     public void testCreateUserUnHappyPath() {
         assertTrue(userService.listAll().isEmpty());
-        UserDto user = new UserDto("Badawy" , "Mahmoud" , "Abouads" , new Date() ,
-                "bawymahmod@gmail.com" , "0595477055" , ""
-                , "badawymahmod" , "123456");
+        UserDto user = new UserDto("Badawy", "Mahmoud", "Abouads", new Date(),
+                "bawymahmod@gmail.com", "0595477055", ""
+                , "badawymahmod", "123456");
         userService.createUser(user);
         assertFalse(userService.listAll().isEmpty());
         userService.createUser(user);
@@ -76,18 +78,18 @@ public class UserServiceTest {
     @Test
     public void testListAll() {
         assertTrue(userService.listAll().isEmpty());
-        userService.createUser(new UserDto("AAAA" , "BBB" , "CCC" , new Date() ,
-                "aaa@gmail.com" , "0556366566" , ""
-                , "aaaa111" , "123456"));
+        userService.createUser(new UserDto("AAAA", "BBB", "CCC", new Date(),
+                "aaa@gmail.com", "0556366566", ""
+                , "aaaa111", "123456"));
         List<User> users = userService.listAll();
         assertFalse(users.isEmpty());
-        assertThat(1 , equalTo(users.size()));
+        assertThat(1, equalTo(users.size()));
         // insert one more
-        userService.createUser(new UserDto("DDDD" , "EEEE" , "FFFF" , new Date() ,
-                "dddgmail.com" , "0535455355" , ""
-                , "ddddlll" , "123456"));
+        userService.createUser(new UserDto("DDDD", "EEEE", "FFFF", new Date(),
+                "dddgmail.com", "0535455355", ""
+                , "ddddlll", "123456"));
         users = userService.listAll();
-        assertThat(2 , equalTo(users.size()));
+        assertThat(2, equalTo(users.size()));
 
     }
 

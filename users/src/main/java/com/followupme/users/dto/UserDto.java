@@ -13,13 +13,11 @@ import java.util.Date;
 /**
  * <h1>UserDto class</h1>
  * <p>
- *     User Dto to use in creating new Users
- *
- *
+ * User Dto to use in creating new Users
  *
  * @author Badawy Abouads
  * @version 1.0
- * @since   2018-06-05
+ * @since 2018-06-05
  */
 @Data
 @AllArgsConstructor
@@ -27,14 +25,14 @@ import java.util.Date;
 @Validated
 public class UserDto {
     @NotNull
-    @Size(min = 5 , max = 15)
+    @Size(min = 5, max = 15)
     private String firstname;
 
-    @Size(min = 0 , max = 15)
+    @Size(min = 0, max = 15)
     private String middleName;
 
     @NotNull
-    @Size(min = 3 , max = 15)
+    @Size(min = 3, max = 15)
     private String lastName;
 
     @NotNull
@@ -43,7 +41,8 @@ public class UserDto {
     private Date dataOfBirth;
 
     @NotNull
-    @Email @Size(min = 5 , max = 50)
+    @Email
+    @Size(min = 5, max = 50)
     private String emailAddress;
 
     @NotNull
@@ -54,10 +53,10 @@ public class UserDto {
     private String landLine;
 
     @NotNull
-    @Size(min = 5 , max = 15)
+    @Size(min = 5, max = 15)
     private String username;
 
     @NotNull
-    @Size(min = 5 , max = 15)
+    @Size(min = 5, max = 15)
     private String password;
 }

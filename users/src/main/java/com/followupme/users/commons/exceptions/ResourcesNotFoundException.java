@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 /**
  * Created on June 06, 2018
  * Created by: Badawy Abouads
- *
+ * <p>
  * Exception for handling the resources which is not found / 404
  */
 @ResponseStatus(value = HttpStatus.NOT_FOUND)

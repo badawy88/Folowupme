@@ -13,13 +13,11 @@ import java.util.Date;
 /**
  * <h1>User class</h1>
  * <p>
- *     User Object which represents USER_ table in database
- *
- *
+ * User Object which represents USER_ table in database
  *
  * @author Badawy Abouads
  * @version 1.0
- * @since   2018-06-05
+ * @since 2018-06-05
  */
 @Data
 @NoArgsConstructor
@@ -43,11 +41,10 @@ public class User {
     private Date createdDate = new Date();
 
     /**
-     *
-     * @param name first name, middle name, last name
+     * @param name        first name, middle name, last name
      * @param dataOfBirth data of birth
      * @param contactInfo contact info
-     * @param loginInfo username, password
+     * @param loginInfo   username, password
      */
     public User(Name name, Date dataOfBirth, Contacts contactInfo, LoginInfo loginInfo) {
         this.name = name;

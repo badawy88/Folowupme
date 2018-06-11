@@ -42,17 +42,17 @@ public class UserServiceUnitTest {
      */
     @Test
     public void testCreateUserHappyPath() {
-        User user = new User(new Name("firstName", "middleName","thridName") ,
+        User user = new User(new Name("firstName", "middleName", "thridName"),
                 new Date(),
-                new Contacts("dummy@gmail.com" , "0123456789" , "") ,
-                new LoginInfo("dummyusername" , "123456789"));
+                new Contacts("dummy@gmail.com", "0123456789", ""),
+                new LoginInfo("dummyusername", "123456789"));
 
         when(userRepository.save(any(User.class))).thenReturn(user);
         // Use user service to insert data
-        UserDto userDto = new UserDto("" , "" , "" , new Date() , "" , "" , "", "" , "");
+        UserDto userDto = new UserDto("", "", "", new Date(), "", "", "", "", "");
         User insertedUser = userService.createUser(userDto);
         //Check data after insertion
         assertNotNull(insertedUser);
-        assertEquals("dummyusername" , insertedUser.getLoginInfo().getUsername());
+        assertEquals("dummyusername", insertedUser.getLoginInfo().getUsername());
     }
 }
